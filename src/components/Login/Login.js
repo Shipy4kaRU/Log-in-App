@@ -71,14 +71,7 @@ const Login = (props) => {
   const passwordInputRef = useRef();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log("Main function");
-      setFormIsValid(emailValidity && passwordValidity);
-    }, 500);
-    return () => {
-      console.log("Clear function");
-      clearTimeout(timer);
-    };
+    setFormIsValid(emailValidity && passwordValidity);
   }, [emailValidity, passwordValidity]);
 
   const emailChangeHandler = (e) => {
@@ -143,10 +136,7 @@ const Login = (props) => {
           onBlur={validatePasswordHandler}
         ></Input>
         <div className={styles.actions}>
-          <Button
-            type="submit"
-            className={styles.btn} /*disabled={!formIsValid}*/
-          >
+          <Button type="submit" className={styles.btn} disabled={!formIsValid}>
             Вход
           </Button>
         </div>
